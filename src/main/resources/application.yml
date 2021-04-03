@@ -1,0 +1,20 @@
+server:
+  port: 9090
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    properties:
+      schema.registry.url: http://localhost:8081
+      specific.protobuf.value.type: com.pw.tms.TextMessageSentProto
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.protobuf.KafkaProtobufDeserializer
+      group-id: notification-service
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      username: ns
+      password: ns
+      database: ns-db
