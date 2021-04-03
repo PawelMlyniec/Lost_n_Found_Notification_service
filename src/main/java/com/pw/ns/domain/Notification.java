@@ -4,7 +4,7 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder(toBuilder = true, setterPrefix = "with")
+@Builder(setterPrefix = "with")
 public class Notification {
 
     private final String id;

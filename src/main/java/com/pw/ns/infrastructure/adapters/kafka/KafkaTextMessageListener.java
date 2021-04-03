@@ -1,5 +1,6 @@
 package com.pw.ns.infrastructure.adapters.kafka;
 
+import com.pw.ns.domain.UserId;
 import com.pw.ns.domain.ports.incoming.TextMessageSentEvent;
 import com.pw.tms.TextMessageSentProto;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -24,8 +25,8 @@ public class KafkaTextMessageListener implements MessageListener<String, TextMes
         var proto = data.value();
         var event = TextMessageSentEvent.builder()
             .withMessageId(proto.getMessageId())
-            .withSourceUserId(proto.getSourceUserId())
-            .withTargetUserId(proto.getTargetUserId())
+            .withSourceUserId(UserId.of(proto.getSourceUserId()))
+            .withTargetUserId(UserId.of(proto.getTargetUserId()))
             .withContent(proto.getContent())
             .build();
         eventPublisher.publishEvent(event);

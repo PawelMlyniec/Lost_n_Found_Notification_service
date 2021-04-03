@@ -15,4 +15,9 @@ public class UserId {
     public String raw() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return id;
+    }
 }
