@@ -11,6 +11,11 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: io.confluent.kafka.serializers.protobuf.KafkaProtobufDeserializer
       group-id: notification-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9090/oauth/.well-known/jwks.json
   data:
     mongodb:
       host: localhost
