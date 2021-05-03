@@ -39,9 +39,10 @@ sourceSets {
 }
 
 schemaRegistry {
-    url.set("http://localhost:8081/")
+    url.set(System.getenv("SCHEMA_REGISTRY_URL") ?: "http://localhost:9099/")
     download {
-        subject("tms-text-messages-proto-value", "src/main/proto")
+        subject("tms-text-messages-proto-TextMessageSentProto", "src/main/proto")
+        subject("lrs-lost-reports-proto-LostReportCreatedProto", "src/main/proto")
     }
 }
 
@@ -100,4 +101,8 @@ tasks {
         dependsOn("bootJar")
         commandLine("docker", "build", "-t", "notification-service", "--target", "fast", "--build-arg", "PROFILE=dev", ".")
     }
+}
+
+afterEvaluate {
+    tasks.getByName("generateProto").dependsOn("downloadSchemasTask")
 }
