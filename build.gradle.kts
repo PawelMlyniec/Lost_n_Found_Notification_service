@@ -74,6 +74,10 @@ dependencies {
     implementation("com.google.protobuf:protobuf-java:3.6.1")
     implementation("io.confluent", "kafka-protobuf-serializer", "5.5.1")
 
+    // Metrics
+    implementation("org.springframework.boot", "spring-boot-starter-actuator", "2.4.0")
+    implementation("io.micrometer", "micrometer-registry-prometheus", "latest.release")
+
     // Swagger
     implementation("io.swagger", "swagger-annotations", "1.6.2")
     implementation("org.openapitools", "jackson-databind-nullable", "0.2.1")

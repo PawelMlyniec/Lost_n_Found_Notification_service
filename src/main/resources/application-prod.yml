@@ -1,30 +1,16 @@
-server:
-  port: 9090
-management:
-  server:
-    port: 9091
-  endpoints:
-    web:
-      exposure:
-        include: health, prometheus
 spring:
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: kafka-cluster-kafka-brokers.kafka:9092
     properties:
-      schema.registry.url: http://localhost:8081
+      schema.registry.url: http://schema-registry-svc.kafka:9099
       specific.protobuf.value.type: com.pw.tms.TextMessageSentProto
     consumer:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: io.confluent.kafka.serializers.protobuf.KafkaProtobufDeserializer
       group-id: notification-service
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: http://localhost:9090/oauth/.well-known/jwks.json
   data:
     mongodb:
-      host: localhost
+      host: mongodb-svc.mongo
       port: 27017
       username: ns
       password: ns
