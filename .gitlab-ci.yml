@@ -10,7 +10,6 @@ cache:
 variables:
   IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
   LATEST_IMAGE_TAG: $CI_REGISTRY_IMAGE:latest
-  SCHEMA_REGISTRY_URL: http://35.246.221.102:9099
 
 stages:
   - build
@@ -21,6 +20,7 @@ build:
   image: openjdk:14
   stage: build
   script:
+    - ls build/libs
     - ./gradlew test
     - ./gradlew bootJar
 
@@ -30,13 +30,14 @@ dockerize:
   services:
     - docker:19.03.8-dind
   script:
+    - ls build/libs
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker pull $LATEST_IMAGE_TAG || true
     - docker build --cache-from $LATEST_IMAGE_TAG -t $IMAGE_TAG -t $LATEST_IMAGE_TAG --target fast --build-arg PROFILE=prod .
     - docker push $IMAGE_TAG
     - docker push $LATEST_IMAGE_TAG
-  only:
-    - master
+#  only:
+#    - master
 
 deploy:
   image: google/cloud-sdk:293.0.0

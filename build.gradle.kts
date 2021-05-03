@@ -40,6 +40,10 @@ sourceSets {
 
 schemaRegistry {
     url.set(System.getenv("SCHEMA_REGISTRY_URL") ?: "http://localhost:9099/")
+    credentials {
+        username.set(System.getenv("SCHEMA_REGISTRY_USERNAME") ?: throw IllegalStateException("SCHEMA_REGISTRY_USERNAME env variable is required!"))
+        password.set(System.getenv("SCHEMA_REGISTRY_PASSWORD") ?: throw IllegalStateException("SCHEMA_REGISTRY_PASSWORD env variable is required!"))
+    }
     download {
         subject("tms-text-messages-proto-TextMessageSentProto", "src/main/proto")
         subject("lrs-lost-reports-proto-LostReportCreatedProto", "src/main/proto")
