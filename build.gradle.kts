@@ -39,9 +39,14 @@ sourceSets {
 }
 
 schemaRegistry {
-    url.set("http://localhost:8081/")
+    url.set(System.getenv("SCHEMA_REGISTRY_URL") ?: "http://localhost:9099/")
+    credentials {
+        username.set(System.getenv("SCHEMA_REGISTRY_USERNAME") ?: throw IllegalStateException("SCHEMA_REGISTRY_USERNAME env variable is required!"))
+        password.set(System.getenv("SCHEMA_REGISTRY_PASSWORD") ?: throw IllegalStateException("SCHEMA_REGISTRY_PASSWORD env variable is required!"))
+    }
     download {
-        subject("tms-text-messages-proto-value", "src/main/proto")
+        subject("tms-text-messages-proto-TextMessageSentProto", "src/main/proto")
+        subject("lrs-lost-reports-proto-LostReportCreatedProto", "src/main/proto")
     }
 }
 
@@ -74,6 +79,10 @@ dependencies {
     implementation("com.google.protobuf:protobuf-java:3.6.1")
     implementation("io.confluent", "kafka-protobuf-serializer", "5.5.1")
 
+    // Metrics
+    implementation("org.springframework.boot", "spring-boot-starter-actuator", "2.4.0")
+    implementation("io.micrometer", "micrometer-registry-prometheus", "latest.release")
+
     // Swagger
     implementation("io.swagger", "swagger-annotations", "1.6.2")
     implementation("org.openapitools", "jackson-databind-nullable", "0.2.1")
@@ -96,4 +105,8 @@ tasks {
         dependsOn("bootJar")
         commandLine("docker", "build", "-t", "notification-service", "--target", "fast", "--build-arg", "PROFILE=dev", ".")
     }
+}
+
+afterEvaluate {
+    tasks.getByName("generateProto").dependsOn("downloadSchemasTask")
 }

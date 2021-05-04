@@ -1,8 +1,8 @@
 spring:
   kafka:
-    bootstrap-servers: kafka:29092
+    bootstrap-servers: kafka-cluster-kafka-brokers.kafka:9092
     properties:
-      schema.registry.url: http://schema-registry:8081
+      schema.registry.url: http://schema-registry-svc.kafka:9099
       specific.protobuf.value.type: com.pw.tms.TextMessageSentProto
     consumer:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -10,7 +10,7 @@ spring:
       group-id: notification-service
   data:
     mongodb:
-      host: mongo
+      host: mongodb-svc.mongo
       port: 27017
       username: ns
       password: ns
