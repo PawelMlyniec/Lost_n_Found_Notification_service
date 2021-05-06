@@ -3,6 +3,8 @@ spring:
     bootstrap-servers: kafka-cluster-kafka-brokers.kafka:9092
     properties:
       schema.registry.url: http://schema-registry-svc.kafka:9099
+      basic.auth.credentials.source: USER_INFO
+      basic.auth.user.info: ${SCHEMA_REGISTRY_USERNAME}:${SCHEMA_REGISTRY_PASSWORD}
       specific.protobuf.value.type: com.pw.tms.TextMessageSentProto
     consumer:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer

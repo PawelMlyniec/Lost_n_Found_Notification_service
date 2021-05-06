@@ -41,8 +41,8 @@ sourceSets {
 schemaRegistry {
     url.set(System.getenv("SCHEMA_REGISTRY_URL") ?: "http://localhost:9099/")
     credentials {
-        username.set(System.getenv("SCHEMA_REGISTRY_USERNAME") ?: throw IllegalStateException("SCHEMA_REGISTRY_USERNAME env variable is required!"))
-        password.set(System.getenv("SCHEMA_REGISTRY_PASSWORD") ?: throw IllegalStateException("SCHEMA_REGISTRY_PASSWORD env variable is required!"))
+        username.set(System.getenv("SCHEMA_REGISTRY_USERNAME") ?: "registry-user")
+        password.set(System.getenv("SCHEMA_REGISTRY_PASSWORD") ?: "<password>")
     }
     download {
         subject("tms-text-messages-proto-TextMessageSentProto", "src/main/proto")
@@ -103,7 +103,7 @@ tasks {
         group = "build"
         description = "Builds Docker Image"
         dependsOn("bootJar")
-        commandLine("docker", "build", "-t", "notification-service", "--target", "fast", "--build-arg", "PROFILE=dev", ".")
+        commandLine("docker", "build", "-t", "notification-service", "--build-arg", "PROFILE=dev", ".")
     }
 }
 
