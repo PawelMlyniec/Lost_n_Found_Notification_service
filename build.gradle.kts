@@ -99,14 +99,14 @@ tasks {
         dependsOn("generateProto")
     }
 
+    test {
+        dependsOn("generateProto")
+    }
+
     register<Exec>("dockerBuild") {
         group = "build"
         description = "Builds Docker Image"
         dependsOn("bootJar")
         commandLine("docker", "build", "-t", "notification-service", "--build-arg", "PROFILE=dev", ".")
     }
-}
-
-afterEvaluate {
-    tasks.getByName("generateProto").dependsOn("downloadSchemasTask")
 }
