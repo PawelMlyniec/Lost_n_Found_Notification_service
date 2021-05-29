@@ -1,4 +1,4 @@
-package com.pw.ns.domain;
+package com.pw.ns.domain.notification;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -7,7 +7,7 @@ import lombok.Getter;
 
 @Data
 @AllArgsConstructor(staticName = "of")
-public class UserId {
+public class NotificationId {
 
     @Getter(AccessLevel.NONE)
     private final String id;

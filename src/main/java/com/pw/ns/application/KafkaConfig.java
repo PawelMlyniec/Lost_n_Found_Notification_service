@@ -1,6 +1,6 @@
-package com.pw.ns.infrastructure.config;
+package com.pw.ns.application;
 
-import com.pw.ns.infrastructure.adapters.kafka.KafkaTextMessageListener;
+import com.pw.ns.infrastructure.kafka.KafkaTextMessageListener;
 import com.pw.tms.TextMessageSentProto;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

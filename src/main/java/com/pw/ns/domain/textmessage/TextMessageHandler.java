@@ -1,7 +1,8 @@
-package com.pw.ns.domain;
+package com.pw.ns.domain.textmessage;
 
-import com.pw.ns.domain.ports.incoming.TextMessageSentEvent;
-import com.pw.ns.domain.ports.outgoing.NotificationRepository;
+import com.pw.ns.domain.notification.Notification;
+import com.pw.ns.domain.notification.NotificationType;
+import com.pw.ns.domain.notification.NotificationRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
