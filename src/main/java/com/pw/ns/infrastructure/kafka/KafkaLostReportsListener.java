@@ -4,6 +4,7 @@ import com.pw.lrs.FoundReportProto;
 import com.pw.lrs.ItemsMatchedProto;
 import com.pw.lrs.LostFoundReportsMatchedProto;
 import com.pw.lrs.LostReportProto;
+import com.pw.ns.domain.email.EmailAddress;
 import com.pw.ns.domain.match.*;
 import com.pw.ns.domain.notification.UserId;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -43,6 +44,8 @@ public class KafkaLostReportsListener implements MessageListener<String, ItemsMa
             .withDescription(lostReport.getDescription())
             .withCategory(lostReport.getCategory())
             .withUserId(UserId.of(lostReport.getUserId()))
+            .withUserFirstName(lostReport.getUserFirstName())
+            .withUserEmail(EmailAddress.of(lostReport.getUserEmail()))
             .withReportedAt(Instant.ofEpochMilli(lostReport.getReportedAt()))
             .build();
     }
@@ -55,6 +58,8 @@ public class KafkaLostReportsListener implements MessageListener<String, ItemsMa
             .withDescription(foundReport.getDescription())
             .withCategory(foundReport.getCategory())
             .withUserId(UserId.of(foundReport.getUserId()))
+            .withUserFirstName(foundReport.getUserFirstName())
+            .withUserEmail(EmailAddress.of(foundReport.getUserEmail()))
             .withReportedAt(Instant.ofEpochMilli(foundReport.getReportedAt()))
             .build();
     }
