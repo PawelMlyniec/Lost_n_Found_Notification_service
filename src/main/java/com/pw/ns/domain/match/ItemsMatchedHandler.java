@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 import static com.pw.ns.infrastructure.util.Strings.*;
 
 @Component
-class ItemMatchHandler {
+class ItemsMatchedHandler {
 
     private final EmailService emailService;
 
     @Autowired
-    public ItemMatchHandler(EmailService emailService) {
+    public ItemsMatchedHandler(EmailService emailService) {
         this.emailService = emailService;
     }
 

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import static com.pw.ns.infrastructure.util.Strings.*;
 
 @Component
-public class SmtpEmailService implements EmailService {
+class SmtpEmailService implements EmailService {
 
     @Override
     public void sendEmail(Email email) {

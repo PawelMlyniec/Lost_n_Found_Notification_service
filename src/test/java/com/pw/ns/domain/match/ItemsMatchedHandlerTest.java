@@ -12,12 +12,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
-class ItemMatchHandlerTest {
+class ItemsMatchedHandlerTest {
 
     @Mock
     private EmailService emailService;
     @InjectMocks
-    private ItemMatchHandler itemMatchHandler;
+    private ItemsMatchedHandler itemsMatchedHandler;
 
     @Test
     void shouldSendEmailOnItemsMatched() {
@@ -35,7 +35,7 @@ class ItemMatchHandlerTest {
             .build();
 
         // when
-        itemMatchHandler.onItemsMatched(event);
+        itemsMatchedHandler.onItemsMatched(event);
 
         // then
         var expectedEmail = Email.builder()
