@@ -1,6 +1,6 @@
 package com.pw.ns.application;
 
-import com.pw.ns.infrastructure.kafka.KafkaTextMessageListener;
+import com.pw.ns.infrastructure.kafka.KafkaTextMessagesListener;
 import com.pw.tms.TextMessageSentProto;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,11 +18,10 @@ public class KafkaConfig {
 
     @Bean
     public GenericMessageListenerContainer<String, TextMessageSentProto> textMessageListener(ConsumerFactory<String, TextMessageSentProto> consumerFactory,
-                                                                                             KafkaTextMessageListener listener) {
+                                                                                             KafkaTextMessagesListener listener) {
 
         var containerProps = new ContainerProperties(TEXT_MESSAGE_TOPIC);
         containerProps.setMessageListener(listener);
-
         return new ConcurrentMessageListenerContainer<>(consumerFactory, containerProps);
     }
 }

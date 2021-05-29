@@ -10,12 +10,12 @@ import org.springframework.kafka.listener.MessageListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class KafkaTextMessageListener implements MessageListener<String, TextMessageSentProto> {
+public class KafkaTextMessagesListener implements MessageListener<String, TextMessageSentProto> {
 
     private final ApplicationEventPublisher eventPublisher;
 
     @Autowired
-    KafkaTextMessageListener(ApplicationEventPublisher eventPublisher) {
+    KafkaTextMessagesListener(ApplicationEventPublisher eventPublisher) {
         this.eventPublisher = eventPublisher;
     }
 

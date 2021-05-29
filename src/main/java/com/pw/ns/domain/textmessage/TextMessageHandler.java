@@ -1,18 +1,18 @@
 package com.pw.ns.domain.textmessage;
 
 import com.pw.ns.domain.notification.Notification;
-import com.pw.ns.domain.notification.NotificationType;
 import com.pw.ns.domain.notification.NotificationRepository;
+import com.pw.ns.domain.notification.NotificationType;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import static java.lang.String.format;
 
 @SuppressWarnings("SpringEventListenerInspection")
 @Slf4j
-@Service
+@Component
 class TextMessageHandler {
 
     private final NotificationRepository notificationRepository;
