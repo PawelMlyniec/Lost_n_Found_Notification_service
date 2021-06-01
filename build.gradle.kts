@@ -69,7 +69,7 @@ dependencies {
     implementation("org.springframework.kafka", "spring-kafka")
 
     // MongoDB
-    implementation("org.springframework.boot", "spring-boot-starter-data-mongodb")
+//    implementation("org.springframework.boot", "spring-boot-starter-data-mongodb")
 
     // Lombok
     compileOnly("org.projectlombok", "lombok")
@@ -82,6 +82,7 @@ dependencies {
     // Metrics
     implementation("org.springframework.boot", "spring-boot-starter-actuator", "2.4.0")
     implementation("io.micrometer", "micrometer-registry-prometheus", "latest.release")
+    implementation("org.springframework", "spring-aspects")
 
     // Swagger
     implementation("io.swagger", "swagger-annotations", "1.6.2")
