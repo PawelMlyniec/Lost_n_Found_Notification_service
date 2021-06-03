@@ -46,7 +46,7 @@ schemaRegistry {
     }
     download {
         subject("tms-text-messages-proto-TextMessageSentProto", "src/main/proto")
-        subject("lrs-lost-reports-proto-LostReportCreatedProto", "src/main/proto")
+        subject("lrs-lost-reports-proto-ItemsMatched", "src/main/proto")
     }
 }
 
