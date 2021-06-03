@@ -2,7 +2,6 @@ package com.pw.ns.infrastructure.kafka;
 
 import com.pw.lrs.FoundReportProto;
 import com.pw.lrs.ItemsMatchedProto;
-import com.pw.lrs.LostFoundReportsMatchedProto;
 import com.pw.lrs.LostReportProto;
 import com.pw.ns.domain.email.EmailAddress;
 import com.pw.ns.domain.match.*;
