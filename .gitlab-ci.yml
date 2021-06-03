@@ -20,7 +20,6 @@ build:
   image: openjdk:14
   stage: build
   script:
-    - ls build/libs
     - ./gradlew downloadSchemasTask
     - ./gradlew test
     - ./gradlew bootJar
