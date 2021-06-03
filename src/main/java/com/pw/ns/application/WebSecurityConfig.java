@@ -1,4 +1,4 @@
-package com.pw.ns.infrastructure.security;
+package com.pw.ns.application;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

@@ -46,7 +46,7 @@ schemaRegistry {
     }
     download {
         subject("tms-text-messages-proto-TextMessageSentProto", "src/main/proto")
-        subject("lrs-lost-reports-proto-LostReportCreatedProto", "src/main/proto")
+        subject("lrs-lost-reports-proto-ItemsMatched", "src/main/proto")
     }
 }
 
@@ -86,6 +86,17 @@ dependencies {
     // Swagger
     implementation("io.swagger", "swagger-annotations", "1.6.2")
     implementation("org.openapitools", "jackson-databind-nullable", "0.2.1")
+
+    // Apache Commons
+    implementation("org.apache.commons", "commons-lang3", "3.12.0")
+
+    // Emails
+    implementation("org.simplejavamail", "simple-java-mail", "5.0.0")
+    implementation("net.markenwerk", "utils-mail-dkim", "1.3.1")
+    implementation("commons-validator", "commons-validator", "1.7")
+
+    // Guava
+    implementation("com.google.guava", "guava", "30.1.1-jre")
 
     // Tests
     testImplementation("org.springframework.boot", "spring-boot-starter-test")

@@ -1,4 +1,4 @@
-package com.pw.ns.domain;
+package com.pw.ns.domain.notification;
 
 import lombok.Builder;
 import lombok.Data;

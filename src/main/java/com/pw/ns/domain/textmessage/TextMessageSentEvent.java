@@ -1,6 +1,6 @@
-package com.pw.ns.domain.ports.incoming;
+package com.pw.ns.domain.textmessage;
 
-import com.pw.ns.domain.UserId;
+import com.pw.ns.domain.notification.UserId;
 import lombok.Builder;
 import lombok.Data;
 

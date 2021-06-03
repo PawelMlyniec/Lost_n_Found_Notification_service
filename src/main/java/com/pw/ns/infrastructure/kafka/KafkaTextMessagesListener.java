@@ -1,7 +1,7 @@
-package com.pw.ns.infrastructure.adapters.kafka;
+package com.pw.ns.infrastructure.kafka;
 
-import com.pw.ns.domain.UserId;
-import com.pw.ns.domain.ports.incoming.TextMessageSentEvent;
+import com.pw.ns.domain.notification.UserId;
+import com.pw.ns.domain.textmessage.TextMessageSentEvent;
 import com.pw.tms.TextMessageSentProto;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +10,12 @@ import org.springframework.kafka.listener.MessageListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class KafkaTextMessageListener implements MessageListener<String, TextMessageSentProto> {
+public class KafkaTextMessagesListener implements MessageListener<String, TextMessageSentProto> {
 
     private final ApplicationEventPublisher eventPublisher;
 
     @Autowired
-    KafkaTextMessageListener(ApplicationEventPublisher eventPublisher) {
+    KafkaTextMessagesListener(ApplicationEventPublisher eventPublisher) {
         this.eventPublisher = eventPublisher;
     }
 
