@@ -44,7 +44,7 @@ class ItemsMatchedHandlerTest {
             .withContent("<html>" +
                 "Hi Gwizdąg! <br/> <br/> " +
                 "We detected that someone has recently found an item which is similar to the one you lost. " +
-                "Visit our website and check it out :-) http://lost-n-found.online/lost_item/321 <br/> <br/>" +
+                "Visit our website and check it out :-) http://lost-n-found.online/found_item/321 <br/> <br/>" +
                 "Best regards, <br/>" +
                 "The Lost'n'Found Team" +
                 "</html>")

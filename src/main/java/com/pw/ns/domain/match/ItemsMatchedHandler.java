@@ -28,7 +28,7 @@ class ItemsMatchedHandler {
                 "<html>" +
                 "Hi {}! <br/> <br/> " +
                 "We detected that someone has recently found an item which is similar to the one you lost. " +
-                "Visit our website and check it out :-) http://lost-n-found.online/lost_item/{} <br/> <br/>" +
+                "Visit our website and check it out :-) http://lost-n-found.online/found_item/{} <br/> <br/>" +
                 "Best regards, <br/>" +
                 "The Lost'n'Found Team" +
                 "</html>", event.lostReport().userFirstName().orElse("there"), event.foundReport().id()))
