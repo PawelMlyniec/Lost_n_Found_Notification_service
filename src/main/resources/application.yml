@@ -12,10 +12,8 @@ spring:
     bootstrap-servers: localhost:9092
     properties:
       schema.registry.url: http://localhost:9099
-      specific.protobuf.value.type: com.pw.tms.TextMessageSentProto
+      auto.register.schemas: false
     consumer:
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: io.confluent.kafka.serializers.protobuf.KafkaProtobufDeserializer
       group-id: notification-service
   security:
     oauth2:
