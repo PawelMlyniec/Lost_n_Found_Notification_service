@@ -51,8 +51,7 @@ public class KafkaConfig {
                                                                                      SchemaRegistryClient schemaRegistry) {
         var props = kafkaProperties.buildConsumerProperties();
         props.put("auto.register.schemas", false);
-        props.put("specific.protobuf.value.type", TextMessageSentProto.class);
-        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new KafkaProtobufDeserializer<>(schemaRegistry));
+        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new KafkaProtobufDeserializer<>(schemaRegistry, props, TextMessageSentProto.class));
     }
 
     @Bean
@@ -61,7 +60,6 @@ public class KafkaConfig {
                                                                                  SchemaRegistryClient schemaRegistry) {
         var props = kafkaProperties.buildConsumerProperties();
         props.put("auto.register.schemas", false);
-        props.put("specific.protobuf.value.type", ItemsMatchedProto.class);
         return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), new KafkaProtobufDeserializer<>(schemaRegistry, props, ItemsMatchedProto.class));
     }
 
